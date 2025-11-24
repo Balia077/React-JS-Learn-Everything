@@ -14,3 +14,10 @@ html,body{
 body{
   background-color: #111;
 }
+
+.card{
+  background-color: #52c823;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+}
