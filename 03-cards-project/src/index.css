@@ -11,12 +11,13 @@ html,body{
 }
 
 .parent{
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: #111;
   padding: 20px;
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .card{
@@ -71,7 +72,7 @@ html,body{
 
 .center h2{
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .center .tag{
