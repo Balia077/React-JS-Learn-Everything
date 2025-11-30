@@ -109,8 +109,9 @@ const App = () => {
   return (
     <div className='parent'>
 
-      {jobs.map(function (elem) {
-        return <Card
+      {jobs.map(function (elem,idx) {
+        return <div key={idx}>
+          <Card
           company={elem.company}
           logo={elem.brandLogo}
           date={elem.datePosted}
@@ -120,6 +121,7 @@ const App = () => {
           pay={elem.pay}
           location={elem.location}
         />
+        </div>
       })}
 
     </div>
