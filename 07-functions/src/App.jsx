@@ -2,13 +2,19 @@ import React from 'react'
 
 const App = () => {
 
-  function btnClicked(){
-    console.log('button is clicked');
+  function inputChanged(val){
+    console.log(val);
   }
 
   return (
     <div>
-      <button onClick={btnClicked}>Click Here</button>
+      <input
+      onChange={function(elem){
+        inputChanged(elem.target.value)
+      }} 
+      type="text" 
+      placeholder='Enter Your Name' 
+      />
     </div>
   )
 }
