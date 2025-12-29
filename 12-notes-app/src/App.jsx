@@ -20,6 +20,11 @@ const App = () => {
     setDetail('')
   }
 
+  const deleteNote = (idx)=>{
+    const copyTask = [...task];
+    copyTask.splice(idx,1)
+    setTask(copyTask)
+  }
 
   return (
     <div className='h-screen lg:flex bg-black text-white'>
@@ -64,11 +69,16 @@ const App = () => {
       </form>
       <div className='lg:w-1/2 lg:border-l p-10'>
         <h1 className='text-4xl font-bold'>Recent Notes</h1>
-        <div className='flex flex-wrap items-start justify-start gap-4 mt-5 h-full overflow-auto'>
+        <div className='flex flex-wrap items-start justify-start gap-4 mt-5 h-[90%] overflow-auto'>
           {task.map((elem,idx)=>{
-            return <div key={idx} className="h-52 bg-cover w-40 rounded-2xl text-black p-4 bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')]">
-              <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
-              <p className='mt-4 leading-tight font-medium text-gray-500'>{elem.detail}</p>
+            return <div key={idx} className="relative flex justify-between items-start flex-col h-52 bg-cover w-40 rounded-2xl text-black pt-9 pb-2 px-4 bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')]">
+              <div>
+                <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
+                <p className='mt-4 leading-tight font-medium text-gray-500'>{elem.detail}</p>
+              </div>
+              <button onClick={()=>{
+                deleteNote(idx)
+              }} className='w-full cursor-pointer active:scale-95 bg-red-500 py-2 text-xs font-bold rounded text-white '>Delete</button>
             </div>
           })}
         </div>
